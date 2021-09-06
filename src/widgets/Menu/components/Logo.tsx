@@ -11,8 +11,8 @@ interface Props {
   isDark: boolean;
   togglePush: () => void;
   href: string;
-  logoUrl: string;
-  mobileLogoUrl: string; 
+  logoUrl?: string;
+  mobileLogoUrl?: string; 
 }
 
 const StyledLink = styled(Link)`
