@@ -3,7 +3,7 @@ import { ImageOnlyProps } from "./types";
 
 const Logo: React.FC<ImageOnlyProps> = (props) => {
   return (
-    <image alt="Logo" {...props} />
+    <img alt="Logo" {...props} />
   );
 };
 
