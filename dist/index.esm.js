@@ -1102,7 +1102,7 @@ var Image = function (_a) {
 var templateObject_1$v, templateObject_2$d;
 
 var Logo$3 = function (props) {
-    return (React.createElement("image", __assign({ alt: "Logo" }, props)));
+    return (React.createElement("img", __assign({ alt: "Logo" }, props)));
 };
 
 var scales$3 = {
@@ -2305,7 +2305,7 @@ var Icon$g = function (props) {
 
 var Logo$2 = function (_a) {
     var props = __rest(_a, []);
-    return (React.createElement("image", __assign({ alt: "Logo" }, props)));
+    return (React.createElement("img", __assign({ alt: "Logo" }, props)));
 };
 
 var Icon$f = function (props) {
@@ -2394,7 +2394,7 @@ MenuButton.defaultProps = {
 };
 var templateObject_1$e;
 
-var StyledLink = styled(Link$1)(templateObject_1$d || (templateObject_1$d = __makeTemplateObject(["\n  display: flex;\n  align-items: center;\n  .mobile-icon {\n    width: 32px;\n    ", " {\n      display: none;\n    }\n  }\n  .desktop-icon {\n    width: 156px;\n    display: none;\n    ", " {\n      display: block;\n    }\n  }\n"], ["\n  display: flex;\n  align-items: center;\n  .mobile-icon {\n    width: 32px;\n    ", " {\n      display: none;\n    }\n  }\n  .desktop-icon {\n    width: 156px;\n    display: none;\n    ", " {\n      display: block;\n    }\n  }\n"])), function (_a) {
+var StyledLink = styled(Link$1)(templateObject_1$d || (templateObject_1$d = __makeTemplateObject(["\n  display: flex;\n  align-items: center;\n  .mobile-icon {\n    width: 48px;\n    height: 48px;\n    ", " {\n      display: none;\n    }\n  }\n  .desktop-icon {\n    width: 156px;\n    height: 48px;\n    display: none;\n    ", " {\n      display: block;\n    }\n  }\n"], ["\n  display: flex;\n  align-items: center;\n  .mobile-icon {\n    width: 48px;\n    height: 48px;\n    ", " {\n      display: none;\n    }\n  }\n  .desktop-icon {\n    width: 156px;\n    height: 48px;\n    display: none;\n    ", " {\n      display: block;\n    }\n  }\n"])), function (_a) {
     var theme = _a.theme;
     return theme.mediaQueries.nav;
 }, function (_a) {
