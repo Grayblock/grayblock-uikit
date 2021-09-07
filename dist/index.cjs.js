@@ -404,7 +404,7 @@ var Icon$N = function (props) {
 };
 
 var Icon$M = function (props) {
-    return (React__default['default'].createElement("image", __assign({ title: "Logo" }, props)));
+    return (React__default['default'].createElement("image", __assign({}, props)));
 };
 
 var Icon$L = function (props) {
@@ -1113,6 +1113,10 @@ var Image = function (_a) {
     return (React__default['default'].createElement(Wrapper$1, __assign({ ref: imgRef }, otherProps), isLoaded ? React__default['default'].createElement(StyledImage, { src: src, alt: alt }) : React__default['default'].createElement(Placeholder, null)));
 };
 var templateObject_1$v, templateObject_2$d;
+
+var Logo$3 = function (props) {
+    return (React__default['default'].createElement("image", __assign({ alt: "Logo" }, props)));
+};
 
 var scales$3 = {
     SM: "sm",
@@ -2313,10 +2317,9 @@ var Icon$g = function (props) {
 };
 
 var Logo$2 = function (_a) {
-    _a.isDark; var props = __rest(_a, ["isDark"]);
-    return (React__default['default'].createElement("image", __assign({ title: "Logo" }, props)));
+    var props = __rest(_a, []);
+    return (React__default['default'].createElement("image", __assign({ alt: "Logo" }, props)));
 };
-var LogoWithText = React__default['default'].memo(Logo$2, function (prev, next) { return prev.isDark === next.isDark; });
 
 var Icon$f = function (props) {
     return (React__default['default'].createElement(Svg, __assign({ viewBox: "0 0 24 24" }, props),
@@ -2382,7 +2385,7 @@ var IconModule = /*#__PURE__*/Object.freeze({
     IfoIcon: Icon$i,
     InfoIcon: Icon$h,
     LanguageIcon: Icon$g,
-    LogoIcon: LogoWithText,
+    LogoIcon: Logo$2,
     MoonIcon: Icon$f,
     MoreIcon: Icon$e,
     NftIcon: Icon$d,
@@ -2412,14 +2415,22 @@ var StyledLink = styled__default['default'](reactRouterDom.Link)(templateObject_
     return theme.mediaQueries.nav;
 });
 var Logo = function (_a) {
-    var isPushed = _a.isPushed, togglePush = _a.togglePush, isDark = _a.isDark, href = _a.href, logoUrl = _a.logoUrl, mobileLogoUrl = _a.mobileLogoUrl;
+    var isPushed = _a.isPushed, togglePush = _a.togglePush, isDark = _a.isDark, href = _a.href, lightLogoUrl = _a.lightLogoUrl, darkLogoUrl = _a.darkLogoUrl, mobileLightLogoUrl = _a.mobileLightLogoUrl, mobileDarkLogoUrl = _a.mobileDarkLogoUrl;
     var isAbsoluteUrl = href.startsWith("http");
+    var logoUrl = isDark ? lightLogoUrl : (darkLogoUrl || '');
+    var mobileLogoUrl = isDark ? mobileLightLogoUrl : mobileDarkLogoUrl;
     var innerLogo = (React__default['default'].createElement(React__default['default'].Fragment, null,
-        React__default['default'].createElement(Icon$M, { className: "mobile-icon", href: mobileLogoUrl }),
-        React__default['default'].createElement(LogoWithText, { className: "desktop-icon", isDark: isDark, href: logoUrl })));
+        React__default['default'].createElement(Logo$3, { className: "mobile-icon", src: mobileLogoUrl }),
+        React__default['default'].createElement(Logo$3, { className: "desktop-icon", src: logoUrl })));
     return (React__default['default'].createElement(Flex, null,
         React__default['default'].createElement(MenuButton, { "aria-label": "Toggle menu", onClick: togglePush, mr: "24px" }, isPushed ? (React__default['default'].createElement(Icon$k, { width: "24px", color: "textSubtle" })) : (React__default['default'].createElement(Icon$l, { width: "24px", color: "textSubtle" }))),
         isAbsoluteUrl ? (React__default['default'].createElement(StyledLink, { as: "a", href: href, "aria-label": "Pancake home page" }, innerLogo)) : (React__default['default'].createElement(StyledLink, { to: href, "aria-label": "Pancake home page" }, innerLogo))));
+};
+Logo.defaultProps = {
+    lightLogoUrl: '',
+    darkLogoUrl: '',
+    mobileLightLogoUrl: '',
+    mobileDarkLogoUrl: '',
 };
 var Logo$1 = React__default['default'].memo(Logo, function (prev, next) { return prev.isPushed === next.isPushed && prev.isDark === next.isDark; });
 var templateObject_1$d;
@@ -3079,7 +3090,7 @@ var MobileOnlyOverlay = styled__default['default'](Overlay)(templateObject_5 || 
 });
 var Menu = function (_a) {
     var _b;
-    var account = _a.account, login = _a.login, logout = _a.logout, isDark = _a.isDark, toggleTheme = _a.toggleTheme, langs = _a.langs, setLang = _a.setLang, currentLang = _a.currentLang, cakePriceUsd = _a.cakePriceUsd, links = _a.links, profile = _a.profile, children = _a.children, logoUrl = _a.logoUrl, mobileLogoUrl = _a.mobileLogoUrl;
+    var account = _a.account, login = _a.login, logout = _a.logout, isDark = _a.isDark, toggleTheme = _a.toggleTheme, langs = _a.langs, setLang = _a.setLang, currentLang = _a.currentLang, cakePriceUsd = _a.cakePriceUsd, links = _a.links, profile = _a.profile, children = _a.children, lightLogoUrl = _a.lightLogoUrl, darkLogoUrl = _a.darkLogoUrl, mobileLightLogoUrl = _a.mobileLightLogoUrl, mobileDarkLogoUrl = _a.mobileDarkLogoUrl;
     var isXl = useMatchBreakpoints().isXl;
     var isMobile = isXl === false;
     var _c = React.useState(!isMobile), isPushed = _c[0], setIsPushed = _c[1];
@@ -3117,7 +3128,7 @@ var Menu = function (_a) {
     var homeLink = links.find(function (link) { return link.label === "Home"; });
     return (React__default['default'].createElement(Wrapper, null,
         React__default['default'].createElement(StyledNav, { showMenu: showMenu },
-            React__default['default'].createElement(Logo$1, { isPushed: isPushed, togglePush: function () { return setIsPushed(function (prevState) { return !prevState; }); }, isDark: isDark, href: (_b = homeLink === null || homeLink === void 0 ? void 0 : homeLink.href) !== null && _b !== void 0 ? _b : "/", logoUrl: logoUrl, mobileLogoUrl: mobileLogoUrl }),
+            React__default['default'].createElement(Logo$1, { isPushed: isPushed, togglePush: function () { return setIsPushed(function (prevState) { return !prevState; }); }, isDark: isDark, href: (_b = homeLink === null || homeLink === void 0 ? void 0 : homeLink.href) !== null && _b !== void 0 ? _b : "/", lightLogoUrl: lightLogoUrl, darkLogoUrl: darkLogoUrl, mobileLightLogoUrl: mobileLightLogoUrl, mobileDarkLogoUrl: mobileDarkLogoUrl }),
             React__default['default'].createElement(Flex, null,
                 React__default['default'].createElement(UserBlock$1, { account: account, login: login, logout: logout }),
                 profile && React__default['default'].createElement(Avatar, { profile: profile }))),
@@ -3355,6 +3366,7 @@ exports.Input = Input$1;
 exports.Link = Link;
 exports.LinkExternal = LinkExternal;
 exports.ListViewIcon = Icon$N;
+exports.Logo = Logo$3;
 exports.LogoIcon = Icon$M;
 exports.LogoRoundIcon = Icon$L;
 exports.Menu = Menu;

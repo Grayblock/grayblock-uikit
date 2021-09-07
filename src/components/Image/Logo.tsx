@@ -1,7 +1,7 @@
 import React from "react";
-import { ImageProps } from "./types";
+import { ImageOnlyProps } from "./types";
 
-const Logo: React.FC<ImageProps> = (props) => {
+const Logo: React.FC<ImageOnlyProps> = (props) => {
   return (
     <image alt="Logo" {...props} />
   );

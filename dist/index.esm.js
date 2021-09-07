@@ -391,7 +391,7 @@ var Icon$N = function (props) {
 };
 
 var Icon$M = function (props) {
-    return (React.createElement("image", __assign({ title: "Logo" }, props)));
+    return (React.createElement("image", __assign({}, props)));
 };
 
 var Icon$L = function (props) {
@@ -1100,6 +1100,10 @@ var Image = function (_a) {
     return (React.createElement(Wrapper$1, __assign({ ref: imgRef }, otherProps), isLoaded ? React.createElement(StyledImage, { src: src, alt: alt }) : React.createElement(Placeholder, null)));
 };
 var templateObject_1$v, templateObject_2$d;
+
+var Logo$3 = function (props) {
+    return (React.createElement("image", __assign({ alt: "Logo" }, props)));
+};
 
 var scales$3 = {
     SM: "sm",
@@ -2300,10 +2304,9 @@ var Icon$g = function (props) {
 };
 
 var Logo$2 = function (_a) {
-    _a.isDark; var props = __rest(_a, ["isDark"]);
-    return (React.createElement("image", __assign({ title: "Logo" }, props)));
+    var props = __rest(_a, []);
+    return (React.createElement("image", __assign({ alt: "Logo" }, props)));
 };
-var LogoWithText = React.memo(Logo$2, function (prev, next) { return prev.isDark === next.isDark; });
 
 var Icon$f = function (props) {
     return (React.createElement(Svg, __assign({ viewBox: "0 0 24 24" }, props),
@@ -2369,7 +2372,7 @@ var IconModule = /*#__PURE__*/Object.freeze({
     IfoIcon: Icon$i,
     InfoIcon: Icon$h,
     LanguageIcon: Icon$g,
-    LogoIcon: LogoWithText,
+    LogoIcon: Logo$2,
     MoonIcon: Icon$f,
     MoreIcon: Icon$e,
     NftIcon: Icon$d,
@@ -2399,14 +2402,22 @@ var StyledLink = styled(Link$1)(templateObject_1$d || (templateObject_1$d = __ma
     return theme.mediaQueries.nav;
 });
 var Logo = function (_a) {
-    var isPushed = _a.isPushed, togglePush = _a.togglePush, isDark = _a.isDark, href = _a.href, logoUrl = _a.logoUrl, mobileLogoUrl = _a.mobileLogoUrl;
+    var isPushed = _a.isPushed, togglePush = _a.togglePush, isDark = _a.isDark, href = _a.href, lightLogoUrl = _a.lightLogoUrl, darkLogoUrl = _a.darkLogoUrl, mobileLightLogoUrl = _a.mobileLightLogoUrl, mobileDarkLogoUrl = _a.mobileDarkLogoUrl;
     var isAbsoluteUrl = href.startsWith("http");
+    var logoUrl = isDark ? lightLogoUrl : (darkLogoUrl || '');
+    var mobileLogoUrl = isDark ? mobileLightLogoUrl : mobileDarkLogoUrl;
     var innerLogo = (React.createElement(React.Fragment, null,
-        React.createElement(Icon$M, { className: "mobile-icon", href: mobileLogoUrl }),
-        React.createElement(LogoWithText, { className: "desktop-icon", isDark: isDark, href: logoUrl })));
+        React.createElement(Logo$3, { className: "mobile-icon", src: mobileLogoUrl }),
+        React.createElement(Logo$3, { className: "desktop-icon", src: logoUrl })));
     return (React.createElement(Flex, null,
         React.createElement(MenuButton, { "aria-label": "Toggle menu", onClick: togglePush, mr: "24px" }, isPushed ? (React.createElement(Icon$k, { width: "24px", color: "textSubtle" })) : (React.createElement(Icon$l, { width: "24px", color: "textSubtle" }))),
         isAbsoluteUrl ? (React.createElement(StyledLink, { as: "a", href: href, "aria-label": "Pancake home page" }, innerLogo)) : (React.createElement(StyledLink, { to: href, "aria-label": "Pancake home page" }, innerLogo))));
+};
+Logo.defaultProps = {
+    lightLogoUrl: '',
+    darkLogoUrl: '',
+    mobileLightLogoUrl: '',
+    mobileDarkLogoUrl: '',
 };
 var Logo$1 = React.memo(Logo, function (prev, next) { return prev.isPushed === next.isPushed && prev.isDark === next.isDark; });
 var templateObject_1$d;
@@ -3066,7 +3077,7 @@ var MobileOnlyOverlay = styled(Overlay)(templateObject_5 || (templateObject_5 = 
 });
 var Menu = function (_a) {
     var _b;
-    var account = _a.account, login = _a.login, logout = _a.logout, isDark = _a.isDark, toggleTheme = _a.toggleTheme, langs = _a.langs, setLang = _a.setLang, currentLang = _a.currentLang, cakePriceUsd = _a.cakePriceUsd, links = _a.links, profile = _a.profile, children = _a.children, logoUrl = _a.logoUrl, mobileLogoUrl = _a.mobileLogoUrl;
+    var account = _a.account, login = _a.login, logout = _a.logout, isDark = _a.isDark, toggleTheme = _a.toggleTheme, langs = _a.langs, setLang = _a.setLang, currentLang = _a.currentLang, cakePriceUsd = _a.cakePriceUsd, links = _a.links, profile = _a.profile, children = _a.children, lightLogoUrl = _a.lightLogoUrl, darkLogoUrl = _a.darkLogoUrl, mobileLightLogoUrl = _a.mobileLightLogoUrl, mobileDarkLogoUrl = _a.mobileDarkLogoUrl;
     var isXl = useMatchBreakpoints().isXl;
     var isMobile = isXl === false;
     var _c = useState(!isMobile), isPushed = _c[0], setIsPushed = _c[1];
@@ -3104,7 +3115,7 @@ var Menu = function (_a) {
     var homeLink = links.find(function (link) { return link.label === "Home"; });
     return (React.createElement(Wrapper, null,
         React.createElement(StyledNav, { showMenu: showMenu },
-            React.createElement(Logo$1, { isPushed: isPushed, togglePush: function () { return setIsPushed(function (prevState) { return !prevState; }); }, isDark: isDark, href: (_b = homeLink === null || homeLink === void 0 ? void 0 : homeLink.href) !== null && _b !== void 0 ? _b : "/", logoUrl: logoUrl, mobileLogoUrl: mobileLogoUrl }),
+            React.createElement(Logo$1, { isPushed: isPushed, togglePush: function () { return setIsPushed(function (prevState) { return !prevState; }); }, isDark: isDark, href: (_b = homeLink === null || homeLink === void 0 ? void 0 : homeLink.href) !== null && _b !== void 0 ? _b : "/", lightLogoUrl: lightLogoUrl, darkLogoUrl: darkLogoUrl, mobileLightLogoUrl: mobileLightLogoUrl, mobileDarkLogoUrl: mobileDarkLogoUrl }),
             React.createElement(Flex, null,
                 React.createElement(UserBlock$1, { account: account, login: login, logout: logout }),
                 profile && React.createElement(Avatar, { profile: profile }))),
@@ -3291,4 +3302,4 @@ var darkTheme = __assign(__assign({}, base), { isDark: true, alert: dark$6, colo
 
 var lightTheme = __assign(__assign({}, base), { isDark: false, alert: light$6, colors: lightColors, card: light$5, toggle: light$3, nav: light$2, modal: light$1, radio: light$4, tooltip: light });
 
-export { Icon$17 as AddIcon, Alert, Icon$16 as ArrowBackIcon, Icon$15 as ArrowDownIcon, Icon$14 as ArrowDropDownIcon, Icon$13 as ArrowDropUpIcon, Icon$12 as ArrowForwardIcon, Icon$11 as ArrowUpIcon, Icon$10 as AutoRenewIcon, BackgroundImage, GridLayout$1 as BaseLayout, Icon$$ as BinanceIcon, Icon$19 as BlockIcon, Box, Breadcrumbs, Icon$_ as BunnyPlaceholderIcon, Button, ButtonMenu, ButtonMenuItem, Icon$Y as CalculateIcon, Card, CardBody, CardFooter, CardHeader, CardRibbon, Icon$Z as CardViewIcon, GridLayout as CardsLayout, Checkbox, Icon$1b as CheckmarkCircleIcon, Icon$X as CheckmarkIcon, Icon$W as ChevronDownIcon, Icon$V as ChevronLeftIcon, Icon$U as ChevronRightIcon, Icon$T as ChevronUpIcon, Icon$S as CloseIcon, Icon$R as CogIcon, Icon$Q as CommunityIcon, ConnectorNames, Icon$P as CopyIcon, Dropdown, Icon$1a as ErrorIcon, FallingBunnies, Flex, Heading, Icon$O as HelpIcon, IconButton, Image, Icon$18 as InfoIcon, Input$1 as Input, Link, LinkExternal, Icon$N as ListViewIcon, Icon$M as LogoIcon, Icon$L as LogoRoundIcon, Menu, Icon$K as MetamaskIcon, Icon$J as MinusIcon, Modal, ModalProvider, Icon$I as NoProfileAvatarIcon, NotificationDot, Icon$H as OpenNewIcon, Icon$F as PancakeRoundIcon, Icon$G as PancakesIcon, Icon$E as PlayCircleOutlineIcon, Icon$D as PrizeIcon, Progress, Icon$A as ProgressBunny, Radio, Icon$C as RemoveIcon, ResetCSS, Icon$u as SearchIcon, Skeleton, Slider, Spinner, Svg, Icon$t as SwapVertIcon, Icon$s as SyncAltIcon, Tag, Text, Icon$x as Ticket, Icon$w as TicketRound, Icon$v as TimerIcon, ToastContainer, Toggle, Icon$B as VerifiedIcon, Icon$z as WaitIcon, Icon$r as WarningIcon, Icon$y as Won, variants$2 as alertVariants, byTextAscending, byTextDescending, connectorLocalStorageKey, darkTheme as dark, darkColors, lightTheme as light, lightColors, makeRender, links as menuConfig, types as toastTypes, useKonamiCheatCode, useMatchBreakpoints, useModal, useParticleBurst, useTable, useWalletModal };
+export { Icon$17 as AddIcon, Alert, Icon$16 as ArrowBackIcon, Icon$15 as ArrowDownIcon, Icon$14 as ArrowDropDownIcon, Icon$13 as ArrowDropUpIcon, Icon$12 as ArrowForwardIcon, Icon$11 as ArrowUpIcon, Icon$10 as AutoRenewIcon, BackgroundImage, GridLayout$1 as BaseLayout, Icon$$ as BinanceIcon, Icon$19 as BlockIcon, Box, Breadcrumbs, Icon$_ as BunnyPlaceholderIcon, Button, ButtonMenu, ButtonMenuItem, Icon$Y as CalculateIcon, Card, CardBody, CardFooter, CardHeader, CardRibbon, Icon$Z as CardViewIcon, GridLayout as CardsLayout, Checkbox, Icon$1b as CheckmarkCircleIcon, Icon$X as CheckmarkIcon, Icon$W as ChevronDownIcon, Icon$V as ChevronLeftIcon, Icon$U as ChevronRightIcon, Icon$T as ChevronUpIcon, Icon$S as CloseIcon, Icon$R as CogIcon, Icon$Q as CommunityIcon, ConnectorNames, Icon$P as CopyIcon, Dropdown, Icon$1a as ErrorIcon, FallingBunnies, Flex, Heading, Icon$O as HelpIcon, IconButton, Image, Icon$18 as InfoIcon, Input$1 as Input, Link, LinkExternal, Icon$N as ListViewIcon, Logo$3 as Logo, Icon$M as LogoIcon, Icon$L as LogoRoundIcon, Menu, Icon$K as MetamaskIcon, Icon$J as MinusIcon, Modal, ModalProvider, Icon$I as NoProfileAvatarIcon, NotificationDot, Icon$H as OpenNewIcon, Icon$F as PancakeRoundIcon, Icon$G as PancakesIcon, Icon$E as PlayCircleOutlineIcon, Icon$D as PrizeIcon, Progress, Icon$A as ProgressBunny, Radio, Icon$C as RemoveIcon, ResetCSS, Icon$u as SearchIcon, Skeleton, Slider, Spinner, Svg, Icon$t as SwapVertIcon, Icon$s as SyncAltIcon, Tag, Text, Icon$x as Ticket, Icon$w as TicketRound, Icon$v as TimerIcon, ToastContainer, Toggle, Icon$B as VerifiedIcon, Icon$z as WaitIcon, Icon$r as WarningIcon, Icon$y as Won, variants$2 as alertVariants, byTextAscending, byTextDescending, connectorLocalStorageKey, darkTheme as dark, darkColors, lightTheme as light, lightColors, makeRender, links as menuConfig, types as toastTypes, useKonamiCheatCode, useMatchBreakpoints, useModal, useParticleBurst, useTable, useWalletModal };
