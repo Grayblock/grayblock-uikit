@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { LogoIcon } from "../../../components/Svg";
+import { Logo as MenuLogo } from "../../../components/Image";
 import Flex from "../../../components/Box/Flex";
-import { HamburgerIcon, HamburgerCloseIcon, LogoIcon as LogoWithText } from "../icons";
+import { HamburgerIcon, HamburgerCloseIcon } from "../icons";
 import MenuButton from "./MenuButton";
 
 interface Props {
@@ -11,8 +11,10 @@ interface Props {
   isDark: boolean;
   togglePush: () => void;
   href: string;
-  logoUrl?: string;
-  mobileLogoUrl?: string; 
+  lightLogoUrl?: string;
+  darkLogoUrl?: string;
+  mobileLightLogoUrl?: string;
+  mobileDarkLogoUrl?: string;
 }
 
 const StyledLink = styled(Link)`
@@ -33,12 +35,15 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const Logo: React.FC<Props> = ({ isPushed, togglePush, isDark, href, logoUrl, mobileLogoUrl }) => {
+const Logo: React.FC<Props> = ({ isPushed, togglePush, isDark, href, lightLogoUrl, darkLogoUrl, mobileLightLogoUrl, mobileDarkLogoUrl }) => {
   const isAbsoluteUrl = href.startsWith("http");
+  const logoUrl = isDark ? lightLogoUrl : (darkLogoUrl || '');
+  const mobileLogoUrl = isDark ? mobileLightLogoUrl : mobileDarkLogoUrl;
+
   const innerLogo = (
     <>
-      <LogoIcon className="mobile-icon" href={mobileLogoUrl} />
-      <LogoWithText className="desktop-icon" isDark={isDark} href={logoUrl} />
+      <MenuLogo className="mobile-icon" src={mobileLogoUrl} />
+      <MenuLogo className="desktop-icon" src={logoUrl} />
     </>
   );
 
@@ -63,5 +68,12 @@ const Logo: React.FC<Props> = ({ isPushed, togglePush, isDark, href, logoUrl, mo
     </Flex>
   );
 };
+
+Logo.defaultProps = {
+  lightLogoUrl: '',
+  darkLogoUrl: '',
+  mobileLightLogoUrl: '',
+  mobileDarkLogoUrl: '',
+}
 
 export default React.memo(Logo, (prev, next) => prev.isPushed === next.isPushed && prev.isDark === next.isDark);
