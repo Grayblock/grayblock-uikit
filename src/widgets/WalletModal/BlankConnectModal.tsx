@@ -8,7 +8,6 @@ import config from "./config";
 import { Login } from "./types";
 
 interface Props {
-  login: Login;
   onDismiss?: () => void;
 }
 

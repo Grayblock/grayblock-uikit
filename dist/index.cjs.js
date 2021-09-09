@@ -3032,7 +3032,7 @@ var templateObject_1$5, templateObject_2$2;
 
 var useWalletModal = function (login, logout, account) {
     var onPresentConnectModal = useModal(React__default['default'].createElement(ConnectModal, { login: login }))[0];
-    var onPresentConnectModal1 = useModal(React__default['default'].createElement(BlankConnectModal, { login: login }))[0];
+    var onPresentConnectModal1 = useModal(React__default['default'].createElement(BlankConnectModal, null))[0];
     var onPresentAccountModal = useModal(React__default['default'].createElement(AccountModal, { account: account || "", logout: logout }))[0];
     return { onPresentConnectModal: onPresentConnectModal, onPresentAccountModal: onPresentAccountModal, onPresentConnectModal1: onPresentConnectModal1 };
 };
