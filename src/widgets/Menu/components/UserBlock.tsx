@@ -28,8 +28,8 @@ const UserBlock: React.FC<Props> = ({ account, login, logout }) => {
         <Button
           scale="sm"
           onClick={() => {
-            // onPresentConnectModal();
-            onPresentConnectModal1();
+            onPresentConnectModal();
+            // onPresentConnectModal1();
           }}
         >
           Connect
