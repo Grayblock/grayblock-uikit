@@ -3012,26 +3012,27 @@ styled(Link)(templateObject_1$5 || (templateObject_1$5 = __makeTemplateObject(["
 var StyleDiv = styled.div(templateObject_2$2 || (templateObject_2$2 = __makeTemplateObject(["\n  display: flex;\n  align-items: center;\n  width: 100%;\n  padding: 8px 0px;\n  justify-content: center;\n"], ["\n  display: flex;\n  align-items: center;\n  width: 100%;\n  padding: 8px 0px;\n  justify-content: center;\n"])));
 var BlankConnectModal = function (_a) {
     var _b = _a.onDismiss, onDismiss = _b === void 0 ? function () { return null; } : _b;
-    return (React.createElement(Modal, { title: "", onDismiss: onDismiss },
+    return (React.createElement(Modal, { title: "Coming Soon", onDismiss: onDismiss },
         React.createElement(StyleDiv, null, "Coming Soon")));
 };
 var templateObject_1$5, templateObject_2$2;
 
 var useWalletModal = function (login, logout, account) {
     var onPresentConnectModal = useModal(React.createElement(ConnectModal, { login: login }))[0];
-    var onPresentCallback = useModal(React.createElement(BlankConnectModal, null))[0];
+    var onPresentConnectModal1 = useModal(React.createElement(BlankConnectModal, null))[0];
     var onPresentAccountModal = useModal(React.createElement(AccountModal, { account: account || "", logout: logout }))[0];
-    return { onPresentConnectModal: onPresentConnectModal, onPresentAccountModal: onPresentAccountModal, onPresentCallback: onPresentCallback };
+    return { onPresentConnectModal: onPresentConnectModal, onPresentAccountModal: onPresentAccountModal, onPresentConnectModal1: onPresentConnectModal1 };
 };
 
 var UserBlock = function (_a) {
     var account = _a.account, login = _a.login, logout = _a.logout;
-    var _b = useWalletModal(login, logout, account), onPresentCallback = _b.onPresentCallback, onPresentAccountModal = _b.onPresentAccountModal;
+    var _b = useWalletModal(login, logout, account); _b.onPresentConnectModal; var onPresentAccountModal = _b.onPresentAccountModal, onPresentConnectModal1 = _b.onPresentConnectModal1;
     var accountEllipsis = account ? account.substring(0, 4) + "..." + account.substring(account.length - 4) : null;
     return (React.createElement("div", null, account ? (React.createElement(Button, { scale: "sm", variant: "tertiary", onClick: function () {
             onPresentAccountModal();
         } }, accountEllipsis)) : (React.createElement(Button, { scale: "sm", onClick: function () {
-            onPresentCallback();
+            // onPresentConnectModal();
+            onPresentConnectModal1();
         } }, "Connect"))));
 };
 var UserBlock$1 = React.memo(UserBlock, function (prevProps, nextProps) { return prevProps.account === nextProps.account; });

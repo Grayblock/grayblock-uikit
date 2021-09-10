@@ -28,7 +28,7 @@ const StyleDiv = styled.div`
 `
 
 const BlankConnectModal: React.FC<Props> = ({ onDismiss = () => null }) => (
-  <Modal title="" onDismiss={onDismiss}>
+  <Modal title="Coming Soon" onDismiss={onDismiss}>
     {/* {config.map((entry, index) => (
       <WalletCard
         key={entry.title}
@@ -45,9 +45,7 @@ const BlankConnectModal: React.FC<Props> = ({ onDismiss = () => null }) => (
       <HelpIcon color="primary" mr="6px" />
       Learn how to connect
     </HelpLink> */}
-    <StyleDiv>
-        Coming Soon
-    </StyleDiv>
+    <StyleDiv>Coming Soon</StyleDiv>
   </Modal>
 );
 

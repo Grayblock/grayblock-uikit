@@ -9,7 +9,7 @@ export default {
 };
 
 export const Wallet: React.FC = () => {
-  const { onPresentConnectModal, onPresentAccountModal } = useWalletModal(
+  const { onPresentConnectModal, onPresentAccountModal, onPresentConnectModal1 } = useWalletModal(
     () => null,
     () => null,
     "0xbdda50183d817c3289f895a4472eb475967dc980"
@@ -18,6 +18,7 @@ export const Wallet: React.FC = () => {
     <Flex>
       <Button onClick={onPresentConnectModal}>Open connect modal</Button>
       <Button onClick={onPresentAccountModal}>Open account modal</Button>
+      <Button onClick={onPresentConnectModal1}>Open connect modal1</Button>
     </Flex>
   );
 };
