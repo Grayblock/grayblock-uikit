@@ -3032,19 +3032,19 @@ var templateObject_1$5, templateObject_2$2;
 
 var useWalletModal = function (login, logout, account) {
     var onPresentConnectModal = useModal(React__default['default'].createElement(ConnectModal, { login: login }))[0];
-    var onPresentConnectModal1 = useModal(React__default['default'].createElement(BlankConnectModal, null))[0];
+    var onPresentCallback = useModal(React__default['default'].createElement(BlankConnectModal, null))[0];
     var onPresentAccountModal = useModal(React__default['default'].createElement(AccountModal, { account: account || "", logout: logout }))[0];
-    return { onPresentConnectModal: onPresentConnectModal, onPresentAccountModal: onPresentAccountModal, onPresentConnectModal1: onPresentConnectModal1 };
+    return { onPresentConnectModal: onPresentConnectModal, onPresentAccountModal: onPresentAccountModal, onPresentCallback: onPresentCallback };
 };
 
 var UserBlock = function (_a) {
     var account = _a.account, login = _a.login, logout = _a.logout;
-    var _b = useWalletModal(login, logout, account), onPresentConnectModal1 = _b.onPresentConnectModal1, onPresentAccountModal = _b.onPresentAccountModal;
+    var _b = useWalletModal(login, logout, account), onPresentCallback = _b.onPresentCallback, onPresentAccountModal = _b.onPresentAccountModal;
     var accountEllipsis = account ? account.substring(0, 4) + "..." + account.substring(account.length - 4) : null;
     return (React__default['default'].createElement("div", null, account ? (React__default['default'].createElement(Button, { scale: "sm", variant: "tertiary", onClick: function () {
             onPresentAccountModal();
         } }, accountEllipsis)) : (React__default['default'].createElement(Button, { scale: "sm", onClick: function () {
-            onPresentConnectModal1();
+            onPresentCallback();
         } }, "Connect"))));
 };
 var UserBlock$1 = React__default['default'].memo(UserBlock, function (prevProps, nextProps) { return prevProps.account === nextProps.account; });
