@@ -3039,13 +3039,13 @@ var useWalletModal = function (login, logout, account) {
 
 var UserBlock = function (_a) {
     var account = _a.account, login = _a.login, logout = _a.logout;
-    var _b = useWalletModal(login, logout, account); _b.onPresentConnectModal; var onPresentAccountModal = _b.onPresentAccountModal, onPresentConnectModal1 = _b.onPresentConnectModal1;
+    var _b = useWalletModal(login, logout, account), onPresentConnectModal = _b.onPresentConnectModal, onPresentAccountModal = _b.onPresentAccountModal; _b.onPresentConnectModal1;
     var accountEllipsis = account ? account.substring(0, 4) + "..." + account.substring(account.length - 4) : null;
     return (React__default['default'].createElement("div", null, account ? (React__default['default'].createElement(Button, { scale: "sm", variant: "tertiary", onClick: function () {
             onPresentAccountModal();
         } }, accountEllipsis)) : (React__default['default'].createElement(Button, { scale: "sm", onClick: function () {
-            // onPresentConnectModal();
-            onPresentConnectModal1();
+            onPresentConnectModal();
+            // onPresentConnectModal1();
         } }, "Connect"))));
 };
 var UserBlock$1 = React__default['default'].memo(UserBlock, function (prevProps, nextProps) { return prevProps.account === nextProps.account; });
