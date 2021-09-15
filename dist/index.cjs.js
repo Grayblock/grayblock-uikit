@@ -1382,7 +1382,7 @@ var styleVariants = (_a$1 = {},
     },
     _a$1);
 
-var Bar = styled__default['default'].div(templateObject_1$o || (templateObject_1$o = __makeTemplateObject(["\n  position: absolute;\n  top: 0;\n  left: 0;\n  background-color: ", ";\n  height: 16px;\n  transition: width 200ms ease;\n"], ["\n  position: absolute;\n  top: 0;\n  left: 0;\n  background-color: ", ";\n  height: 16px;\n  transition: width 200ms ease;\n"])), function (props) { return (props.primary ? props.theme.colors.secondary : props.theme.colors.secondary + "80"); });
+var Bar = styled__default['default'].div(templateObject_1$o || (templateObject_1$o = __makeTemplateObject(["\n  position: absolute;\n  top: 0;\n  left: 0;\n  background-color: #1fc7d4;\n  height: 16px;\n  transition: width 200ms ease;\n"], ["\n  position: absolute;\n  top: 0;\n  left: 0;\n  background-color: #1fc7d4;\n  height: 16px;\n  transition: width 200ms ease;\n"])));
 Bar.defaultProps = {
     primary: false,
 };
