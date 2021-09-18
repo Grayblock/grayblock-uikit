@@ -216,7 +216,7 @@ var StyledButton = styled.button(templateObject_1$O || (templateObject_1$O = __m
 }), variant$1({
     variants: styleVariants$2,
 }), layout, space);
-styled(StyledButton)(templateObject_2$j || (templateObject_2$j = __makeTemplateObject(["\n  background-color: ", ";\n  color: ", ";\n"], ["\n  background-color: ", ";\n  color: ", ";\n"])), function (_a) {
+var ExtendedButton = styled(StyledButton)(templateObject_2$j || (templateObject_2$j = __makeTemplateObject(["\n  background-color: ", ";\n  color: ", ";\n"], ["\n  background-color: ", ";\n  color: ", ";\n"])), function (_a) {
     var theme = _a.theme; _a.color;
     return (theme.isDark ? "#d1f4a4" : "#2d7265");
 }, function (_a) {
@@ -237,6 +237,29 @@ var Button = function (props) {
         classNames.push("pancake-button--disabled");
     }
     return (React.createElement(StyledButton, __assign({ "$isLoading": isLoading, className: classNames.join(" "), disabled: isDisabled }, internalProps, rest),
+        React.createElement(React.Fragment, null,
+            isValidElement(startIcon) &&
+                cloneElement(startIcon, {
+                    mr: "0.5rem",
+                }),
+            children,
+            isValidElement(endIcon) &&
+                cloneElement(endIcon, {
+                    ml: "0.5rem",
+                }))));
+};
+var ExButton = function (props) {
+    var startIcon = props.startIcon, endIcon = props.endIcon, external = props.external, className = props.className, isLoading = props.isLoading, disabled = props.disabled, children = props.children, rest = __rest(props, ["startIcon", "endIcon", "external", "className", "isLoading", "disabled", "children"]);
+    var internalProps = external ? getExternalLinkProps() : {};
+    var isDisabled = isLoading || disabled;
+    var classNames = className ? [className] : [];
+    if (isLoading) {
+        classNames.push("pancake-button--loading");
+    }
+    if (isDisabled && !isLoading) {
+        classNames.push("pancake-button--disabled");
+    }
+    return (React.createElement(ExtendedButton, __assign({ "$isLoading": isLoading, className: classNames.join(" "), disabled: isDisabled }, internalProps, rest),
         React.createElement(React.Fragment, null,
             isValidElement(startIcon) &&
                 cloneElement(startIcon, {
@@ -3330,4 +3353,4 @@ var darkTheme = __assign(__assign({}, base), { isDark: true, alert: dark$6, colo
 
 var lightTheme = __assign(__assign({}, base), { isDark: false, alert: light$6, colors: lightColors, card: light$5, toggle: light$3, nav: light$2, modal: light$1, radio: light$4, tooltip: light });
 
-export { Icon$17 as AddIcon, Alert, Icon$16 as ArrowBackIcon, Icon$15 as ArrowDownIcon, Icon$14 as ArrowDropDownIcon, Icon$13 as ArrowDropUpIcon, Icon$12 as ArrowForwardIcon, Icon$11 as ArrowUpIcon, Icon$10 as AutoRenewIcon, BackgroundImage, GridLayout$1 as BaseLayout, Icon$$ as BinanceIcon, Icon$19 as BlockIcon, Box, Breadcrumbs, Icon$_ as BunnyPlaceholderIcon, Button, ButtonMenu, ButtonMenuItem, Icon$Y as CalculateIcon, Card, CardBody, CardFooter, CardHeader, CardRibbon, Icon$Z as CardViewIcon, GridLayout as CardsLayout, Checkbox, Icon$1b as CheckmarkCircleIcon, Icon$X as CheckmarkIcon, Icon$W as ChevronDownIcon, Icon$V as ChevronLeftIcon, Icon$U as ChevronRightIcon, Icon$T as ChevronUpIcon, Icon$S as CloseIcon, Icon$R as CogIcon, Icon$Q as CommunityIcon, ConnectorNames, Icon$P as CopyIcon, Dropdown, Icon$1a as ErrorIcon, FallingBunnies, Flex, Heading, Icon$O as HelpIcon, IconButton, Image, Icon$18 as InfoIcon, Input$1 as Input, Link, LinkExternal, Icon$N as ListViewIcon, Logo$3 as Logo, Icon$M as LogoIcon, Icon$L as LogoRoundIcon, Menu, Icon$K as MetamaskIcon, Icon$J as MinusIcon, Modal, ModalProvider, Icon$I as NoProfileAvatarIcon, NotificationDot, Icon$H as OpenNewIcon, Icon$F as PancakeRoundIcon, Icon$G as PancakesIcon, Icon$E as PlayCircleOutlineIcon, Icon$D as PrizeIcon, Progress, Icon$A as ProgressBunny, Radio, Icon$C as RemoveIcon, ResetCSS, Icon$u as SearchIcon, Skeleton, Slider, Spinner, Svg, Icon$t as SwapVertIcon, Icon$s as SyncAltIcon, Tag, Text, Icon$x as Ticket, Icon$w as TicketRound, Icon$v as TimerIcon, ToastContainer, Toggle, Icon$B as VerifiedIcon, Icon$z as WaitIcon, Icon$r as WarningIcon, Icon$y as Won, variants$2 as alertVariants, byTextAscending, byTextDescending, connectorLocalStorageKey, darkTheme as dark, darkColors, lightTheme as light, lightColors, makeRender, links as menuConfig, types as toastTypes, useKonamiCheatCode, useMatchBreakpoints, useModal, useParticleBurst, useTable, useWalletModal };
+export { Icon$17 as AddIcon, Alert, Icon$16 as ArrowBackIcon, Icon$15 as ArrowDownIcon, Icon$14 as ArrowDropDownIcon, Icon$13 as ArrowDropUpIcon, Icon$12 as ArrowForwardIcon, Icon$11 as ArrowUpIcon, Icon$10 as AutoRenewIcon, BackgroundImage, GridLayout$1 as BaseLayout, Icon$$ as BinanceIcon, Icon$19 as BlockIcon, Box, Breadcrumbs, Icon$_ as BunnyPlaceholderIcon, Button, ButtonMenu, ButtonMenuItem, Icon$Y as CalculateIcon, Card, CardBody, CardFooter, CardHeader, CardRibbon, Icon$Z as CardViewIcon, GridLayout as CardsLayout, Checkbox, Icon$1b as CheckmarkCircleIcon, Icon$X as CheckmarkIcon, Icon$W as ChevronDownIcon, Icon$V as ChevronLeftIcon, Icon$U as ChevronRightIcon, Icon$T as ChevronUpIcon, Icon$S as CloseIcon, Icon$R as CogIcon, Icon$Q as CommunityIcon, ConnectorNames, Icon$P as CopyIcon, Dropdown, Icon$1a as ErrorIcon, ExButton, FallingBunnies, Flex, Heading, Icon$O as HelpIcon, IconButton, Image, Icon$18 as InfoIcon, Input$1 as Input, Link, LinkExternal, Icon$N as ListViewIcon, Logo$3 as Logo, Icon$M as LogoIcon, Icon$L as LogoRoundIcon, Menu, Icon$K as MetamaskIcon, Icon$J as MinusIcon, Modal, ModalProvider, Icon$I as NoProfileAvatarIcon, NotificationDot, Icon$H as OpenNewIcon, Icon$F as PancakeRoundIcon, Icon$G as PancakesIcon, Icon$E as PlayCircleOutlineIcon, Icon$D as PrizeIcon, Progress, Icon$A as ProgressBunny, Radio, Icon$C as RemoveIcon, ResetCSS, Icon$u as SearchIcon, Skeleton, Slider, Spinner, Svg, Icon$t as SwapVertIcon, Icon$s as SyncAltIcon, Tag, Text, Icon$x as Ticket, Icon$w as TicketRound, Icon$v as TimerIcon, ToastContainer, Toggle, Icon$B as VerifiedIcon, Icon$z as WaitIcon, Icon$r as WarningIcon, Icon$y as Won, variants$2 as alertVariants, byTextAscending, byTextDescending, connectorLocalStorageKey, darkTheme as dark, darkColors, lightTheme as light, lightColors, makeRender, links as menuConfig, types as toastTypes, useKonamiCheatCode, useMatchBreakpoints, useModal, useParticleBurst, useTable, useWalletModal };

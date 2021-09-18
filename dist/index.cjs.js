@@ -228,7 +228,7 @@ var StyledButton = styled__default['default'].button(templateObject_1$O || (temp
 }), styledSystem.variant({
     variants: styleVariants$2,
 }), styledSystem.layout, styledSystem.space);
-styled__default['default'](StyledButton)(templateObject_2$j || (templateObject_2$j = __makeTemplateObject(["\n  background-color: ", ";\n  color: ", ";\n"], ["\n  background-color: ", ";\n  color: ", ";\n"])), function (_a) {
+var ExtendedButton = styled__default['default'](StyledButton)(templateObject_2$j || (templateObject_2$j = __makeTemplateObject(["\n  background-color: ", ";\n  color: ", ";\n"], ["\n  background-color: ", ";\n  color: ", ";\n"])), function (_a) {
     var theme = _a.theme; _a.color;
     return (theme.isDark ? "#d1f4a4" : "#2d7265");
 }, function (_a) {
@@ -249,6 +249,29 @@ var Button = function (props) {
         classNames.push("pancake-button--disabled");
     }
     return (React__default['default'].createElement(StyledButton, __assign({ "$isLoading": isLoading, className: classNames.join(" "), disabled: isDisabled }, internalProps, rest),
+        React__default['default'].createElement(React__default['default'].Fragment, null,
+            React.isValidElement(startIcon) &&
+                React.cloneElement(startIcon, {
+                    mr: "0.5rem",
+                }),
+            children,
+            React.isValidElement(endIcon) &&
+                React.cloneElement(endIcon, {
+                    ml: "0.5rem",
+                }))));
+};
+var ExButton = function (props) {
+    var startIcon = props.startIcon, endIcon = props.endIcon, external = props.external, className = props.className, isLoading = props.isLoading, disabled = props.disabled, children = props.children, rest = __rest(props, ["startIcon", "endIcon", "external", "className", "isLoading", "disabled", "children"]);
+    var internalProps = external ? getExternalLinkProps() : {};
+    var isDisabled = isLoading || disabled;
+    var classNames = className ? [className] : [];
+    if (isLoading) {
+        classNames.push("pancake-button--loading");
+    }
+    if (isDisabled && !isLoading) {
+        classNames.push("pancake-button--disabled");
+    }
+    return (React__default['default'].createElement(ExtendedButton, __assign({ "$isLoading": isLoading, className: classNames.join(" "), disabled: isDisabled }, internalProps, rest),
         React__default['default'].createElement(React__default['default'].Fragment, null,
             React.isValidElement(startIcon) &&
                 React.cloneElement(startIcon, {
@@ -3382,6 +3405,7 @@ exports.CommunityIcon = Icon$Q;
 exports.CopyIcon = Icon$P;
 exports.Dropdown = Dropdown;
 exports.ErrorIcon = Icon$1a;
+exports.ExButton = ExButton;
 exports.FallingBunnies = FallingBunnies;
 exports.Flex = Flex;
 exports.Heading = Heading;
