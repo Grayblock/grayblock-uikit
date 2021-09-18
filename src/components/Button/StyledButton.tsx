@@ -66,19 +66,19 @@ const StyledButton = styled.button<BaseButtonProps>`
     opacity: 0.85;
   }
 
-  background-color: ${({ theme, color }) => (theme.isDark ? "#f9f9ed" : "#FFF")};
-  color: ${({ theme, color }) => (theme.isDark ? "#000" : "#000")};
-
+  .chqfni: disabled, .chQfNI.pancake-button--disabled {
+    background-color: ${({ theme, color }) => (theme.isDark ? "#f9f9ed" : "#FFF")};
+    color: ${({ theme, color }) => (theme.isDark ? "#000" : "#000")};
+  }
   ${getDisabledStyles}
   ${variant({
     prop: "scale",
     variants: scaleVariants,
   })}
-  ${variant({
+      ${variant({
     variants: styleVariants,
   })}
-  ${layout}
-  ${space}
+      ${layout} ${space};
 `;
 
 export const ExtendedButton = styled(StyledButton)`
