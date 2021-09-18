@@ -2805,7 +2805,7 @@ var StyledPanel = styled__default['default'].div(templateObject_1$8 || (template
     return (showMenu ? "80px" : 0);
 }, function (_a) {
     var theme = _a.theme;
-    return theme.nav.background;
+    return (theme.isDark ? "#383E42" : theme.nav.background);
 }, function (_a) {
     var isPushed = _a.isPushed;
     return (isPushed ? SIDEBAR_WIDTH_FULL + "px" : 0);
