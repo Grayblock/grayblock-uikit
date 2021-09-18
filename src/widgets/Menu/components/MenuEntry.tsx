@@ -43,7 +43,7 @@ const MenuEntry = styled.div<Props>`
   }
 
   svg {
-    fill: ${({ theme }) => theme.colors.textSubtle};
+    fill: ${({ theme }) => theme.isDark ? "#D1F4A4" : "#336666"};
   }
 
   &:hover {

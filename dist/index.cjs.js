@@ -2641,7 +2641,7 @@ var MenuEntry = styled__default['default'].div(templateObject_3$2 || (templateOb
     return (isActive ? "inset 4px 0px 0px " + theme.colors.primary : "none");
 }, function (_a) {
     var theme = _a.theme;
-    return theme.colors.textSubtle;
+    return theme.isDark ? "#D1F4A4" : "#336666";
 }, function (_a) {
     var theme = _a.theme;
     return theme.colors.tertiary;
