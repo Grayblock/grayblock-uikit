@@ -53,6 +53,10 @@ const MenuEntry = styled.div<Props>`
     fill: ${({ theme }) => (theme.isDark ? "#D1F4A4" : "#336666")};
   }
 
+  .kMvMAw {
+    color: ${({ theme }) => (theme.isDark ? "#D1F4A4" : "#336666")};
+  }
+
   &:hover {
     background-color: ${({ theme }) => theme.colors.tertiary};
   }
