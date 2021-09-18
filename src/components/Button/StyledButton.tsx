@@ -80,4 +80,9 @@ const StyledButton = styled.button<BaseButtonProps>`
   ${space}
 `;
 
+export const ExtendedButton = styled(StyledButton)`
+  background-color: ${({ theme, color }) => (theme.isDark ? "#d1f4a4" : "#2d7265")};
+  color: ${({ theme, color }) => (theme.isDark ? "#000" : "#FFF")};
+`;
+
 export default StyledButton;

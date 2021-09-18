@@ -74,7 +74,7 @@ function __makeTemplateObject(cooked, raw) {
 }
 
 var rotate$1 = styled.keyframes(templateObject_1$Q || (templateObject_1$Q = __makeTemplateObject(["\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(360deg);\n  }\n"], ["\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(360deg);\n  }\n"])));
-var spinStyle = styled.css(templateObject_2$j || (templateObject_2$j = __makeTemplateObject(["\n  animation: ", " 2s linear infinite;\n"], ["\n  animation: ", " 2s linear infinite;\n"])), rotate$1);
+var spinStyle = styled.css(templateObject_2$k || (templateObject_2$k = __makeTemplateObject(["\n  animation: ", " 2s linear infinite;\n"], ["\n  animation: ", " 2s linear infinite;\n"])), rotate$1);
 var Svg = styled__default['default'].svg(templateObject_3$9 || (templateObject_3$9 = __makeTemplateObject(["\n  fill: ", ";\n  flex-shrink: 0;\n\n  ", "\n  ", "\n"], ["\n  fill: ", ";\n  flex-shrink: 0;\n\n  ", "\n  ", "\n"])), function (_a) {
     var theme = _a.theme; _a.color;
     return (theme.isDark ? "#D1F4A4" : "#336666");
@@ -88,7 +88,7 @@ Svg.defaultProps = {
     xmlns: "http://www.w3.org/2000/svg",
     spin: false,
 };
-var templateObject_1$Q, templateObject_2$j, templateObject_3$9;
+var templateObject_1$Q, templateObject_2$k, templateObject_3$9;
 
 var Icon$1b = function (props) {
     return (React__default['default'].createElement(Svg, __assign({ viewBox: "0 0 24 24" }, props),
@@ -228,7 +228,14 @@ var StyledButton = styled__default['default'].button(templateObject_1$O || (temp
 }), styledSystem.variant({
     variants: styleVariants$2,
 }), styledSystem.layout, styledSystem.space);
-var templateObject_1$O;
+styled__default['default'](StyledButton)(templateObject_2$j || (templateObject_2$j = __makeTemplateObject(["\n  background-color: ", ";\n  color: ", ";\n"], ["\n  background-color: ", ";\n  color: ", ";\n"])), function (_a) {
+    var theme = _a.theme; _a.color;
+    return (theme.isDark ? "#d1f4a4" : "#2d7265");
+}, function (_a) {
+    var theme = _a.theme; _a.color;
+    return (theme.isDark ? "#000" : "#FFF");
+});
+var templateObject_1$O, templateObject_2$j;
 
 var Button = function (props) {
     var startIcon = props.startIcon, endIcon = props.endIcon, external = props.external, className = props.className, isLoading = props.isLoading, disabled = props.disabled, children = props.children, rest = __rest(props, ["startIcon", "endIcon", "external", "className", "isLoading", "disabled", "children"]);
