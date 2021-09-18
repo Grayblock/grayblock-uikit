@@ -45,10 +45,8 @@ const MenuEntry = styled.div<Props>`
     }
   }
 
-  div {
-    div {
-      color: ${({ theme }) => (theme.isDark ? "#D1F4A4" : "#336666")};
-    }
+  .ezsOMF {
+    color: ${({ theme }) => (theme.isDark ? "#D1F4A4" : "#336666")};
   }
 
   svg {
