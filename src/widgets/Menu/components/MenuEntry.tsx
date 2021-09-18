@@ -42,8 +42,14 @@ const MenuEntry = styled.div<Props>`
     height: 100%;
   }
 
+  a div {
+    .cCOQrN {
+      color: ${({ theme }) => (theme.isDark ? "#D1F4A4" : "#336666")};
+    }
+  }
+
   svg {
-    fill: ${({ theme }) => theme.isDark ? "#D1F4A4" : "#336666"};
+    fill: ${({ theme }) => (theme.isDark ? "#D1F4A4" : "#336666")};
   }
 
   &:hover {
