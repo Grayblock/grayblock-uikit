@@ -40,11 +40,8 @@ const MenuEntry = styled.div<Props>`
     align-items: center;
     width: 100%;
     height: 100%;
-  }
-
-  a div {
-    .ezsOMF {
-      color: ${({ theme }) => (theme.isDark ? "#D1F4A4" : "#336666")};
+    div {
+        color: ${({ theme }) => (theme.isDark ? "#D1F4A4" : "#336666")};
     }
   }
 
