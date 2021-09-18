@@ -66,7 +66,7 @@ const StyledButton = styled.button<BaseButtonProps>`
     opacity: 0.85;
   }
 
-  .chqfni: disabled, .chQfNI.pancake-button--disabled {
+  .sc-dwcupg {
     background-color: ${({ theme, color }) => (theme.isDark ? "#f9f9ed" : "#FFF")};
     color: ${({ theme, color }) => (theme.isDark ? "#000" : "#000")};
   }
