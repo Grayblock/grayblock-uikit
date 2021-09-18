@@ -41,7 +41,13 @@ const MenuEntry = styled.div<Props>`
     width: 100%;
     height: 100%;
     div {
-        color: ${({ theme }) => (theme.isDark ? "#D1F4A4" : "#336666")};
+      color: ${({ theme }) => (theme.isDark ? "#D1F4A4" : "#336666")};
+    }
+  }
+
+  div {
+    div {
+      color: ${({ theme }) => (theme.isDark ? "#D1F4A4" : "#336666")};
     }
   }
 
