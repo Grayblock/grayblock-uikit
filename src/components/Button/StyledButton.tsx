@@ -20,11 +20,15 @@ const getDisabledStyles = ({ isLoading, theme }: ThemedButtonProps) => {
   return `
     &:disabled,
     &.pancake-button--disabled {
-      background-color: ${theme.isDark ? "#f9f9ed" : "#FFF"};
+      background-color: ${theme.colors.backgroundDisabled};
       border-color: ${theme.colors.backgroundDisabled};
       box-shadow: none;
-      color: ${theme.isDark ? "#000" : "#000"};
+      color: ${theme.colors.textDisabled};
       cursor: not-allowed;
+    }
+    &.harvest_btn {
+      background-color: ${theme.isDark ? "#f9f9ed" : "#FFF"};
+      color: ${theme.isDark ? "#000" : "#000"};
     }
   `;
 };
@@ -66,10 +70,6 @@ const StyledButton = styled.button<BaseButtonProps>`
     opacity: 0.85;
   }
 
-  .harvest_btn {
-    background-color: ${({ theme, color }) => (theme.isDark ? "#f9f9ed" : "#FFF")};
-    color: ${({ theme, color }) => (theme.isDark ? "#000" : "#000")};
-  }
 
   ${getDisabledStyles}
   ${variant({
