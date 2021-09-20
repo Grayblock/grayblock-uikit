@@ -60,16 +60,15 @@ const StyledButton = styled.button<BaseButtonProps>`
   transition: background-color 0.2s;
   &:hover:not(:disabled):not(.pancake-button--disabled):not(.pancake-button--disabled):not(:active) {
     opacity: 0.65;
-    background-color: ${({ theme, color }) => (theme.isDark ? "#f9f9ed" : "#FFF")};
-    color: ${({ theme, color }) => (theme.isDark ? "#000" : "#000")};
   }
 
   &:active:not(:disabled):not(.pancake-button--disabled):not(.pancake-button--disabled) {
     opacity: 0.85;
-    background-color: ${({ theme, color }) => (theme.isDark ? "#f9f9ed" : "#FFF")};
-    color: ${({ theme, color }) => (theme.isDark ? "#000" : "#000")};
   }
 
+  background-color: ${({ theme, color }) => (theme.isDark ? "#f9f9ed" : "#FFF")} !important;
+  color: ${({ theme, color }) => (theme.isDark ? "#000" : "#000")} !important;
+  
   ${getDisabledStyles}
   ${variant({
     prop: "scale",
