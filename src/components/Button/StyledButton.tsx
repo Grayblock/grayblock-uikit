@@ -85,10 +85,7 @@ export const ExtendedButton = styled(StyledButton)`
   background-color: ${({ theme, color }) => (theme.isDark ? "#d1f4a4" : "#2d7265")};
   color: ${({ theme, color }) => (theme.isDark ? "#000" : "#FFF")};
   padding: 15px 0px;
-  .action_btn{
-    border-radius: 50px;
-    margin: 24px 0;
-  }
+  border-radius: 50px;
 `;
 
 export default StyledButton;
