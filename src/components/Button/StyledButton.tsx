@@ -66,10 +66,8 @@ const StyledButton = styled.button<BaseButtonProps>`
     opacity: 0.85;
   }
 
-  .sc-dwcupg {
-    background-color: ${({ theme, color }) => (theme.isDark ? "#f9f9ed" : "#FFF")};
-    color: ${({ theme, color }) => (theme.isDark ? "#000" : "#000")};
-  }
+  background-color: ${({ theme, color }) => (theme.isDark ? "#f9f9ed" : "#FFF")};
+  color: ${({ theme, color }) => (theme.isDark ? "#000" : "#000")};
   ${getDisabledStyles}
   ${variant({
     prop: "scale",
