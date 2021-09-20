@@ -65,7 +65,8 @@ const StyledButton = styled.button<BaseButtonProps>`
   &:active:not(:disabled):not(.pancake-button--disabled):not(.pancake-button--disabled) {
     opacity: 0.85;
   }
-  .pancake-button--disabled {
+
+  .harvest_btn {
     background-color: ${({ theme, color }) => (theme.isDark ? "#f9f9ed" : "#FFF")};
     color: ${({ theme, color }) => (theme.isDark ? "#000" : "#000")};
   }
