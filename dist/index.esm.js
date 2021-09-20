@@ -216,7 +216,7 @@ var StyledButton = styled.button(templateObject_1$O || (templateObject_1$O = __m
 }), variant$1({
     variants: styleVariants$2,
 }), layout, space);
-var ExtendedButton = styled(StyledButton)(templateObject_2$j || (templateObject_2$j = __makeTemplateObject(["\n  background-color: ", ";\n  color: ", ";\n  padding: 15px 0px;\n"], ["\n  background-color: ", ";\n  color: ", ";\n  padding: 15px 0px;\n"])), function (_a) {
+var ExtendedButton = styled(StyledButton)(templateObject_2$j || (templateObject_2$j = __makeTemplateObject(["\n  background-color: ", ";\n  color: ", ";\n  padding: 15px 0px;\n  .action_btn{\n    border-radius: 50px;\n    margin: 24px 0;\n  }\n"], ["\n  background-color: ", ";\n  color: ", ";\n  padding: 15px 0px;\n  .action_btn{\n    border-radius: 50px;\n    margin: 24px 0;\n  }\n"])), function (_a) {
     var theme = _a.theme; _a.color;
     return (theme.isDark ? "#d1f4a4" : "#2d7265");
 }, function (_a) {
