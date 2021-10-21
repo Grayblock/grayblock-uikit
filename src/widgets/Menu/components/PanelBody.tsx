@@ -12,7 +12,7 @@ interface Props extends PanelProps, PushedProps {
   isMobile: boolean;
 }
 
-const Icons = (IconModule as unknown) as { [key: string]: React.FC<SvgProps> };
+const Icons = IconModule as unknown as { [key: string]: React.FC<SvgProps> };
 
 const Container = styled.div`
   display: flex;
@@ -53,7 +53,9 @@ const PanelBody: React.FC<Props> = ({ isPushed, pushNav, isMobile, links }) => {
               {isPushed &&
                 entry.items.map((item) => (
                   <MenuEntry key={item.href} secondary isActive={item.href === location.pathname} onClick={handleClick}>
-                    <MenuLink href={item.href}>{item.label}</MenuLink>
+                    <MenuLink target={item.href.startsWith("http") ? "_blank" : ""} href={item.href}>
+                      {item.label}
+                    </MenuLink>
                   </MenuEntry>
                 ))}
             </Accordion>
