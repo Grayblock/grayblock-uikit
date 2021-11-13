@@ -18,14 +18,13 @@ const HelpLink = styled(Link)`
   margin-top: 24px;
 `;
 
-
 const StyleDiv = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
   padding: 8px 0px;
   justify-content: center;
-`
+`;
 
 const BlankConnectModal: React.FC<Props> = ({ onDismiss = () => null }) => (
   <Modal title="Coming Soon" onDismiss={onDismiss}>

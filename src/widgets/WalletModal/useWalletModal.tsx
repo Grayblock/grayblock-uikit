@@ -2,7 +2,7 @@ import React from "react";
 import { useModal } from "../Modal";
 import ConnectModal from "./ConnectModal";
 import AccountModal from "./AccountModal";
-import BlankConnectModal from './BlankConnectModal';
+import BlankConnectModal from "./BlankConnectModal";
 import { Login } from "./types";
 
 interface ReturnType {

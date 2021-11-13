@@ -70,7 +70,6 @@ const StyledButton = styled.button<BaseButtonProps>`
     opacity: 0.85;
   }
 
-
   ${getDisabledStyles}
   ${variant({
     prop: "scale",

@@ -37,9 +37,18 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const Logo: React.FC<Props> = ({ isPushed, togglePush, isDark, href, lightLogoUrl, darkLogoUrl, mobileLightLogoUrl, mobileDarkLogoUrl }) => {
+const Logo: React.FC<Props> = ({
+  isPushed,
+  togglePush,
+  isDark,
+  href,
+  lightLogoUrl,
+  darkLogoUrl,
+  mobileLightLogoUrl,
+  mobileDarkLogoUrl,
+}) => {
   const isAbsoluteUrl = href.startsWith("http");
-  const logoUrl = isDark ? lightLogoUrl : (darkLogoUrl || '');
+  const logoUrl = isDark ? lightLogoUrl : darkLogoUrl || "";
   const mobileLogoUrl = isDark ? mobileLightLogoUrl : mobileDarkLogoUrl;
 
   const innerLogo = (
@@ -72,10 +81,10 @@ const Logo: React.FC<Props> = ({ isPushed, togglePush, isDark, href, lightLogoUr
 };
 
 Logo.defaultProps = {
-  lightLogoUrl: '',
-  darkLogoUrl: '',
-  mobileLightLogoUrl: '',
-  mobileDarkLogoUrl: '',
-}
+  lightLogoUrl: "",
+  darkLogoUrl: "",
+  mobileLightLogoUrl: "",
+  mobileDarkLogoUrl: "",
+};
 
 export default React.memo(Logo, (prev, next) => prev.isPushed === next.isPushed && prev.isDark === next.isDark);
