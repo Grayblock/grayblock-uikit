@@ -113,7 +113,14 @@ export const links = [
   },
 ];
 
-export const socials: any = [
+export interface Social {
+  label: string;
+  icon: string;
+  href: string;
+  items?: Social[];
+}
+
+export const socials: Social[] = [
   {
     label: "Telegram",
     icon: "TelegramIcon",
