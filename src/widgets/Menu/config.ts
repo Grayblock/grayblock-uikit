@@ -113,7 +113,7 @@ export const links = [
   },
 ];
 
-export const socials = [
+export const socials: any = [
   {
     label: "Telegram",
     icon: "TelegramIcon",
