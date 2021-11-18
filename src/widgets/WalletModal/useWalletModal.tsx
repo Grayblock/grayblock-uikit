@@ -14,7 +14,7 @@ interface ReturnType {
 const useWalletModal = (login: Login, logout: () => void, account?: string): ReturnType => {
   const [onPresentConnectModal] = useModal(<ConnectModal login={login} />);
   const [onPresentAccountModal] = useModal(<AccountModal account={account || ""} logout={logout} />);
-  const [onPresentEmailModal] = useModal(<EmailModal />);
+  const [onPresentEmailModal] = useModal(<EmailModal onConnect={onPresentConnectModal} />);
   return { onPresentConnectModal, onPresentAccountModal, onPresentEmailModal };
 };
 
