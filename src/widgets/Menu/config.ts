@@ -122,9 +122,9 @@ export interface Social {
 
 export const socials: Social[] = [
   {
-    label: "Telegram",
-    icon: "TelegramIcon",
-    href: "https://t.me/grayblockpower",
+    label: "Discord",
+    icon: "DiscordIcon",
+    href: "https://discord.gg/grayblockpower",
   },
   {
     label: "Twitter",
